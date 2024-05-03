@@ -1,0 +1,13 @@
+---
+- name:                    Apache - Installation and Configuration
+  hosts:                   tomcat_servers
+  become:                  true
+  vars:
+    apache_listen_port: 3000
+    apache_listen_port_ssl: 3443
+    apache_vhosts:
+       - {servername: "rhel2", documentroot: "/var/www/vhosts/example_com"}
+    
+  roles:
+    - roles/apache
+
